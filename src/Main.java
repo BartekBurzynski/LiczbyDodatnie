@@ -9,22 +9,54 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         int i = input.nextInt();
-
-        while (i > 0) {
+        do {
             System.out.println("Podaj liczbe");
-            i = input.nextInt();
-            numbers.add(i);
-        }
+
+            if (i > 0) {
+                i = input.nextInt();
+                numbers.add(i);
+            }
+        } while (i > 0);
+
+
+        maxNumbers(numbers);
+        minNumbers(numbers);
         sumNumbers(numbers);
         reverseNumbers(numbers);
+
     }
+
+    private static int maxNumbers(List<Integer> numbers) {
+        int max = 0;
+        for (Integer number : numbers) {
+            if (number > max) {
+                max = number;
+            }
+            System.out.println(max);
+        }
+       return max;
+    }
+
+    private static int minNumbers(List<Integer> numbers) {
+        int min = 0;
+        for (Integer number : numbers) {
+            if (number < min) {
+                min = number;
+            }
+            System.out.println(min);
+        }
+        return min;
+
+
+    }
+
 
     private static void sumNumbers(List<Integer> numbers) {
         int sum = 0;
         for (int i = 0; i < numbers.size(); i++) {
             if (i < numbers.size() - 1) {
                 System.out.println(numbers.get(i) + "+");
-
+                sum += i;
             } else System.out.println(numbers.get(i) + "=" + sum);
         }
 
